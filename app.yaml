@@ -1,3 +1,10 @@
 runtime: python311
-
+service: python-service
 entrypoint: gunicorn -b :$PORT app:app
+manual_scaling:
+  instances: 3
+  #automatic_scaling:
+  #min_instances: 1
+  #max_instances: 5
+  #target_cpu_utilization: 0.6
+  #target_throughput_utilization: 0.6
