@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login - App Engine Frontend</title>
+</head>
+<body style="font-family: sans-serif; max-width: 400px; margin: 60px auto;">
+    <h2>Login</h2>
+    <form method="POST">
+        <label>Username</label><br>
+        <input type="text" name="username" required><br><br>
+        <label>Password</label><br>
+        <input type="password" name="password" required><br><br>
+        <button type="submit">Login</button>
+    </form>
+    {% if message %}
+        <p><strong>{{ message }}</strong></p>
+    {% endif %}
+</body>
+</html>

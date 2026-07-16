@@ -1,0 +1,4 @@
+runtime: python312
+
+env_variables:
+  BACKEND_URL: "https://backend-login-api-717948519217.us-central1.run.app/login"
