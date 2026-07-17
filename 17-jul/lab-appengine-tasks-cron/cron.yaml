@@ -1,0 +1,4 @@
+cron:
+  - description: "Runs cleanup every 5 minutes"
+    url: /cron/cleanup
+    schedule: every 5 minutes
