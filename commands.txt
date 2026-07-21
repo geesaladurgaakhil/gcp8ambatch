@@ -1,0 +1,133 @@
+1  gcloud iam workload-identity-pools providers create-oidc github-provider   --location="global"   --workload-identity-pool="github-pool"   --issuer-uri="https://token.actions.githubusercontent.com"   --attribute-mapping="google.subject=assertion.sub,attribute.actor=assertion.actor,attribute.repository=assertion.repository,attribute.ref=assertion.ref"   --attribute-condition="attribute.repository=='geesaladurgaakhil/githubaction' && attribute.ref=='refs/heads/main'"
+    2  gcloud iam workload-identity-pools providers describe github-provider     --location=global     --workload-identity-pool=github-pool
+    3  gcloud projects describe project-125a5906-9774-4549-bad --format="value(projectNumber)"
+    4  gcloud iam service-accounts add-iam-policy-binding github-actions-sa@PROJECT_ID.iam.gserviceaccount.com --role="roles/iam.workloadIdentityUser" --member="principalSet://iam.googleapis.com/projects/717948519217/locations/global/workloadIdentityPools/github-pool/attribute.repository/geesaladurgaakhil/githubaction"
+    5  gcloud iam service-accounts add-iam-policy-binding akhil-sa@project-125a5906-9774-4549-bad.iam.gserviceaccount.com --role="roles/iam.workloadIdentityUser" --member="principalSet://iam.googleapis.com/projects/717948519217/locations/global/workloadIdentityPools/github-pool/attribute.repository/geesaladurgaakhil/githubaction"
+    6  gcloud iam workload-identity-pools providers describe github-provider     --location=global     --workload-identity-pool=github-pool
+    8  gcloud projects add-iam-policy-binding project-125a5906-9774-4549-bad     --member="serviceAccount:akhil-sa@project-125a5906-9774-4549-bad.iam.gserviceaccount.com"     --role="roles/container.developer"
+   42  gcloud iam workload-identity-pools create github-pool --location=global
+   43  gcloud iam workload-identity-pools create github-pool1 --location=global
+   47  gcloud iam workload-identity-pools providers create-oidc github-provider --location="global" --workload-identity-pool="github-pool" 
+   48  gcloud iam workload-identity-pools providers create-oidc github-provider --location="global" --workload-identity-pool="github-pool"   --issuer-uri="https://token.actions.githubusercontent.com"   --attribute-mapping="google.subject=assertion.sub,attribute.actor=assertion.actor,attribute.repository=assertion.repository,attribute.ref=assertion.ref"   --attribute-condition="attribute.repository=='geesaladurgaakhil/gcp_repo' && attribute.ref=='refs/heads/main'"
+   49  gcloud iam workload-identity-pools providers describe github-provider --location=global --workload-identity-pool=github-pool
+   50  gcloud iam workload-identity-pools providers create-oidc github-provider --location="global" --workload-identity-pool="github-pool1"   --issuer-uri="https://token.actions.githubusercontent.com"   --attribute-mapping="google.subject=assertion.sub,attribute.actor=assertion.actor,attribute.repository=assertion.repository,attribute.ref=assertion.ref"   --attribute-condition="attribute.repository=='geesaladurgaakhil/gcp_repo' && attribute.ref=='refs/heads/main'"
+   51  gcloud iam workload-identity-pools providers describe github-provider --location=global --workload-identity-pool=github-pool1
+   52  gcloud projects describe project-125a5906-9774-4549-bad --format="value(projectNumber)"
+   53  gcloud iam service-accounts add-iam-policy-binding githubactions-sa@project-125a5906-9774-4549-bad.iam.gserviceaccount.com --role="roles/iam.workloadIdentityUser" --member="principalSet://iam.googleapis.com/projects/717948519217/locations/global/workloadIdentityPools/github-pool1/attribute.repository/geesaladurgaakhil/gcp_repo"
+   54  gcloud container clusters get-credentials my-demo-cluster --region us-central1 --project project-125a5906-9774-4549-bad
+   59  gcloud container clusters get-credentials my-demo-cluster --region us-central1 --project project-125a5906-9774-4549-bad
+   64  gcloud container clusters get-credentials cluster-1 --zone us-east1-b --project project-125a5906-9774-4549-bad
+   66  gcloud contianer clusters update cluster-1 --region us-east1-b --workload-pool=project-125a5906-9774-4549-bad.svc.id.goog
+   67  gcloud container clusters update cluster-1 --region us-east1-b --workload-pool=project-125a5906-9774-4549-bad.svc.id.goog
+   68  gcloud iam service-accounts create gcp-sa
+   85  gcloud run deploy cloudrun-service --source . --region asia-south1
+   87  curl -X POST "https://python-app-717948519217.europe-west1.run.app" -H "Authorization: bearer $(gcloud auth print-identity-token)" -H "Content-Type: application/json" -d '{  "name": "Developer" }'
+   91  gcloud builds submit --tag gcr.io/project-125a5906-9774-4549-bad/cloudrun-demo
+   96  gcloud builds submit --tag gcr.io/project-125a5906-9774-4549-bad/cloudrun-demo
+   98  gcloud builds submit --tag gcr.io/project-125a5906-9774-4549-bad/cloudrun-demo
+  100  gcloud builds submit --tag gcr.io/project-125a5906-9774-4549-bad/cloudrun-demo
+  101  gcloud builds describe project-125a5906-9774-4549-bad
+  102  gcloud builds submit --tag gcr.io/project-125a5906-9774-4549-bad/cloudrun-demo
+  104  gcloud builds submit --tag gcr.io/project-125a5906-9774-4549-bad/cloudrun-demo
+  111  gcloud builds submit --tag asia-south1-docker.pkg.dev/project-125a5906-9774-4549-bad/cloudrun-demo
+  115  gcloud organizations add-iam-policy-binding 394727520858   --member="user:malati99899@gmail.com"   --role="roles/compute.xpnAdmin"
+  116  gcloud organizations add-iam-policy-binding 394727520858   --member="user:malati99899@gmail.com"   --role="roles/compute.organizations.enableXpnHost"
+  117  gcloud organizations add-iam-policy-binding host-501313  --member="user:malati99899@gmail.com"   --role="roles/compute.organizations.enableXpnHost"
+  122  gcloud builds submit --tag asia-south1-docker.pkg.dev/project-125a5906-9774-4549-bad/cloudrun-demo
+  123  gcloud builds submit --tag gcr.io/project-125a5906-9774-4549-bad/cloudrun-demo
+  124  gcloud builds submit --tag asia-south1-docker.pkg.dev/project-125a5906-9774-4549-bad/cloudrun-demo:v1
+  125  gcloud auth list
+  126  gcloud auth configure-docker asia-south1-docker.pkg.dev
+  127  gcloud artifacts repositories list
+  128  gcloud builds submit --tag asia-south1-docker.pkg.dev/project-125a5906-9774-4549-bad/cloudrun-demo:v1
+  138  gcloud builds submit --tag asia-south1-docker.pkg.dev/project-125a5906-9774-4549-bad/cloudrun-demo/batch-job:v1
+  150  gcloud app deploy
+  160  gcloud app deploy
+  162  gcloud app deploy
+  163  gcloud projects get-iam-policy project-125a5906-9774-4549-bad --flatten="bindings[].members" --format="table(bindings.role, bindings.members)
+  165  gcloud storage buckets get-iam-policy gs://staging.project-125a5906-9774-4549-bad.appspot.com
+  173  gcloud init
+  174  gcloud app deploy
+  175  gcloud app logs tail -s default
+  176  gcloud app browse
+  181  gcloud app browse
+  182  gcloud app deploy
+  184  gcloud app logs tail -s default
+  188  gcloud app deploy
+  192  gcloud app deploy
+  224  gcloud app deploy
+  227  gcloud app deploy
+  230  gcloud app deploy
+  244  gcloud app deploy
+  248  gcloud app deploy
+  251  gcloud app deploy
+  253  gcloud app deploy
+  255  gcloud app deploy
+  262  gcloud app deploy
+  282  gcloud run deploy backend-login-api   --source .   --region us-central1   --allow-unauthenticated   --platform managed
+  294  gcloud app deploy
+  298  gcloud app deploy
+  309  gcloud run deploy backend-login-api --source . --region us-central1 --allow-unauthenticated --platform managed
+  319  gcloud app deploy
+  322  gcloud app deploy
+  332  gcloud app deploy
+  333  gcloud app logs tail -s default
+  336  gcloud app deploy
+  337  gcloud app logs tail -s default
+  339  gcloud app logs tail -s default
+  343  gcloud app deploy
+  344  gcloud app logs tail -s default
+  346  gcloud app deploy
+  349  gcloud app deploy
+  350  gcloud run services get-iam-policy backend-login-api --region us-central1
+  351  gcloud iam service-accounts list
+  352  gcloud run services describe backend-login-api --region us-central1 --format="value(status.url)"
+  355  gcloud run services describe backend-login-api --region us-central1 --format="value(status.url)"
+  356  gcloud run services get-iam-policy backend-login-api --region us-central1
+  360  gcloud run deploy backend-login-api --source . --region us-central1  --platform managed
+  361  gcloud app logs tail -s default
+  368  gcloud app deploy
+  369  gcloud run services remove-iam-policy-binding backend-login-api   --region us-central1   --member="serviceAccount:gcp-sa@project-125a5906-9774-4549-bad.iam.gserviceaccount.com"   --role="roles/run.invoker"
+  370  gcloud run services add-iam-policy-binding backend-login-api   --region us-central1   --member="serviceAccount:gcp-sa@project-125a5906-9774-4549-bad.iam.gserviceaccount.com"   --role="roles/run.invoker"
+  371  gcloud run services remove-iam-policy-binding backend-login-api   --region us-central1   --member="serviceAccount:gcp-sa@project-125a5906-9774-4549-bad.iam.gserviceaccount.com"   --role="roles/run.invoker"
+  372  gcloud run services add-iam-policy-binding backend-login-api   --region us-central1   --member="serviceAccount:gcp-sa@project-125a5906-9774-4549-bad.iam.gserviceaccount.com"   --role="roles/run.invoker"
+  373  gcloud run services get-iam-policy backend-login-api --region us-central1
+  374  gcloud run services remove-iam-policy-binding backend-login-api   --region us-central1   --member="serviceAccount:gcp-sa@project-125a5906-9774-4549-bad.iam.gserviceaccount.com"   --role="roles/run.invoker"
+  375  gcloud run services add-iam-policy-binding backend-login-api   --region us-central1   --member="serviceAccount:gcp-sa@project-125a5906-9774-4549-bad.iam.gserviceaccount.com"   --role="roles/run.invoker"
+  411  gcloud run services get-iam-policy backend-login-api --region us-central1
+  412  gcloud app deploy
+  416  gcloud run services get-iam-policy backend-login-api --region us-central1
+  418  gcloud app deploy
+  420  gcloud app deploy
+  421  gcloud run services get-iam-policy backend-login-api --region us-central1
+  422  gcloud run services remove-iam-policy-binding backend-login-api --region us-central1 --member="serviceAccount:gcp-sa@project-125a5906-9774-4549-bad.iam.gserviceaccount.com" --role="role/run.invoker"
+  423  gcloud app deploy
+  425  gcloud app deploy
+  426  gcloud config list
+  427  gcloud run services get-iam-policy backend-login-api --region us-central1
+  428  gcloud run services remove-iam-policy-binding backend-login-api --region us-central1 --member="serviceAccount:gcp-sa@project-125a5906-9774-4549-bad.iam.gserviceaccount.com" --role="roles/run.invoker"
+  446  gcloud tasks queues create my-lab-queue --location=us-central1
+  450  gcloud app deploy
+  451  gcloud app logs tail -s default
+  453  gcloud app logs tail -s default
+  457  gcloud app logs tail -s default
+  469  gcloud app logs tail -s default
+  470  gcloud run services get-iam-policy backend-login-api --region us-central1
+  471  gcloud app deploy
+  474  gcloud app logs tail -s default
+  479  gcloud app deploy cron.yaml
+  480  gcloud app cron jobs list 2>/dev/null || gcloud tasks queues list --location=us-central1
+  481  gcloud app deploy
+  482  gcloud app logs tail -s default
+  486  gcloud app logs tail -s default
+  489  gcloud app logs tail -s default
+  491  gcloud app logs tail -s default
+  493  gcloud app logs tail -s default
+  495  gcloud app deploy
+  497  gcloud app logs tail -s default
+  498  gcloud app firewall-rules list
+  506  gcloud app deploy
+  507  gcloud app logs tail -s default
+  509  gcloud app logs tail -s default
+  519  gcloud app logs tail -s default
+  524  history | grep gcloud
