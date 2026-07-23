@@ -1,0 +1,27 @@
+   5 docker build -t app-python:v2 .                                                                                                                          
+   6 docker images                                                                                                                                            
+   7 docker run -d --name=test2 -p 5002:5000 app-python:v2                                                                                                    
+   8 docker ps                                                                                                                                                
+  10 docker exec -it 8bd09696a5a1  bash                                                                                                                                                                                                                                                                          
+  13 docker ps                                                                                                                                                
+  14 docker build -t app-python:v3 .                                                                                                                          
+  15 docker images                                                                                                                                            
+  16 docker tag app-python:v3 us-central1-docker.pkg.dev/project-125a5906-9774-4549-bad/app-python/app:v3                                                     
+  17 docker run -d --name=test3 -p 5003:5000 app-python:v3                                                                                                    
+  18 docker ps                                                                                                                                                
+  19 docker stop test2                                                                                                                                        
+  20 docker ps                                                                                                                                                
+  21 docker ps -a                                                                                                                                             
+  22 docker run -d --name=test4 -p 5002:5000 app-python:v3
+
+
+  GAR Commands: & Steps:
+  ----------------------
+
+Crate a artifact repo in GCP --> app-python
+
+from gcloud sdk run auth command  --> gcloud auth configure-docker us-central1-docker.pkg.dev
+
+docker tag app-python:v2 us-central1-docker.pkg.dev/project-125a5906-9774-4549-bad/app-python/app:v2
+
+docker push us-central1-docker.pkg.dev/project-125a5906-9774-4549-bad/app-python/app:v2
