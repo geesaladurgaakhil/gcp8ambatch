@@ -8,7 +8,12 @@
   15 docker images                                                                                                                                            
   16 docker tag app-python:v3 us-central1-docker.pkg.dev/project-125a5906-9774-4549-bad/app-python/app:v3                                                     
   17 docker run -d --name=test3 -p 5003:5000 app-python:v3                                                                                                    
-  18 docker ps                                                                                                                                                
+  18 docker ps                                                                                                                                            
+
+
+##Docker pull command:
+docker pull durgaakhil0211/app-python:v1 --platform linux/amd64
+ 
   19 docker stop test2                                                                                                                                        
   20 docker ps                                                                                                                                                
   21 docker ps -a                                                                                                                                             
