@@ -1,0 +1,46 @@
+kubectl get nodes
+  494  clear
+  495  kubectl apply -f pod1.yml
+  496  kubectl get pods
+  497  kubectl describe pod web-server
+  498  kubectl apply -f pythonpod.yml
+  499  kubectl get pods
+  500  kubectl describe pod python-pod
+  501  kubectl exec -it python-pod -- bash
+  502  kubectl logs python-pod
+  503  kubectl get pods
+  504  kubectl delete pod web-server
+  505  kubectl get pods
+  506  kubectl delete pod python-pod
+  507  cd 8am_gcp_batch/
+  508  ls
+  509  kubectl apply -f deployment.yml
+  510  kubectl get deployments
+  511  kubectl get pod
+  512  kubectl get pod --show-labels
+  513  kubectl get deployments --show-labels
+  514  kubectl delete pod nginx-deployment-bf744486c-2tzrp
+  515  kubectl get deployments --show-labels
+  516  kubectl get deployments --show-labels
+  517  kubectl get pod --show-labels
+  518  kubectl get deployments --show-labels
+  519  kubectl describe deployment nginx-deployment
+  520  kubectl get pod --show-labels
+  521  kubectl apply -f deployment.yml
+  522  kubectl get deployments --show-labels
+  523  kubectl get pod --show-labels
+  524  kubectl describe deployment nginx-deployment
+  525  kubectl get pods
+  527  kubectl describe pod nginx-deployment-bf744486c-94n7b
+  528  kubectl apply -f deployment.yml
+  529  kubectl get pods
+  530  kubectl describe deployment nginx-deployment
+  531  kubectl get pods
+  532  kubectl logs nginx-deployment-56cc7df7bd-mzs7b
+  533  kubectl logs nginx-deployment-56cc7df7bd-mzs7b -c redis
+  534  kubectl logs nginx-deployment-56cc7df7bd-mzs7b -c nginx
+  535  kubectl logs nginx-deployment-56cc7df7bd-mzs7b -c redis
+  536  kubectl get pods
+  537  kubectl exec -it nginx-deployment-56cc7df7bd-mzs7b -- bash
+  538  kubectl exec -it nginx-deployment-56cc7df7bd-mzs7b -c redis -- bash
+  539  history
