@@ -1,0 +1,39 @@
+ 506  minikube start --driver=docker
+  507  minikube kubectl -- get po -A
+  508  kubectl get ns
+  509  kubectl get nodes
+  510  kubectl create ns dev
+  511  kubectl get ns
+  512  clear
+  513  cd AKS_Files/8am_gcp_batch/
+  514  cd 31-july/
+  515  ls
+  516  kubectl apply -f configmap.yml -n dev
+  517  kubectl get configmaps -n dev
+  518  kubectl describe configmap nginx-config -n dev
+  519  kubectl apply -f deployment.yml
+  520  kubectl get pods -n deafult
+  521  kubectl get deployments
+  522  kubectl get deployments
+  523  kubectl describe deployment myapp
+  524  kubectl get pods -n deafult
+  525  kubectl apply -f deployment.yml -n dev
+  526  kubectl get deployments -n dev
+  527  kubectl get pods -n dev
+  528  kubectl describe pod myapp-65448bd849-cpxf9 -n dev
+  529  kubectl get pods -n dev
+  530  kubectl exec -it myapp-65448bd849-cpxf9 -n dev -- bash
+  531  kubectl exec -it myapp-65448bd849-cpxf9 -n dev -c myapp -- bash
+  532  echo "Akhil"
+  533  echo "Akhil" | base64
+  534  echo "QWtoaWwK" | bsae64 -d
+  535  echo "QWtoaWwK" | base64 -d
+  536  echo "Welcome@123"
+  537  echo "Welcome@123" | base64
+  538  kubectl apply -f secrets.yml -n dev
+  539  kubectl get secrets -n dev
+  540  kubectl describe secret mysecret -n dev
+  541  kubectl apply -f deployment.yml -n dev
+  542  kubectl get pods -n dev
+  543  kubectl exec -it myapp-8574758f89-65hkb -n dev -- bash
+  544  history
