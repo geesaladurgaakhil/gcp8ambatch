@@ -1,0 +1,26 @@
+ 502  cd gcp8ambatch/
+  503  cd 3-aug/
+  504  ls
+  505  kubectl apply -f app3.yml
+  506  kubectl apply -f svc3.yml
+  507  kubectl get pods
+  508  kuectl get pods -a
+  509  kubectl get pods -A
+  510  kubectl delete -f svc3.yml
+  511  kubectl apply -f app3.yml -n ingress-demo
+  512  kubectl apply -f svc3.yml -n ingress-demo
+  513  kubectl get pods -n ingress-demo
+  514  kubectl get pods -n ingress-demo
+  515  kubectl get svc -n ingress-demo
+  516  kubectl get pods -n ingress-demo
+  517  kubectl apply -f ingress.yml -n ingress-demo
+  518  kubectl get ing -a
+  519  kubectl get ing -A
+  520  kubectl get svc -n ingress-nginx
+  521  history
+
+minikube telnet
+
+
+Link for k8s doc:
+https://kubernetes.io/docs/reference/kubectl/generated/kubectl_create/kubectl_create_secret_tls/
