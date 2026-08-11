@@ -1,0 +1,28 @@
+ 504  kubectl get nodes
+  505  kubectl describe node minikube
+  506  kubectl taint nodes minikube env=prod:NoSchedule
+  507  cd gcp8ambatch/11-aug/
+  508  kubectl apply -f app1.yml
+  509  kubectl get deployment
+  510  kubectl get pods
+  511  kubectl describe pod nginx-558cc6846c-ctzb4
+  512  kubectl apply -f app1.yml
+  513  kubectl get pods
+  514  kubectl describe pod nginx-666bffc77d-r7p7b
+  515  kubectl taint nodes minikube env=prod:NoSchedule-
+  516  kubectl get pods
+  517  kubectl taint nodes minikube env=prod:NoExecute
+  518  kubectl get pods
+  519  kubectl get pods
+  520  kubectl get pods
+  521  kubectl taint nodes minikube env=prod:NoExecute-
+  522  kubectl get pods
+  523  kubectl get nodes --show-lables
+  524  kubectl get nodes --show-labels
+  525  kubectl label node minikube app=aiml
+  526  kubectl get nodes --show-labels
+  527  kubectl apply -f app2.yml
+  528  kubectl get pods
+  529  kubectl describe pod adminer-bcfc7b684-9r7t6
+  530  kubectl get nodes --show-labels
+  531  history
