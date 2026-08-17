@@ -7,13 +7,25 @@ on:
      - test
  workflow_dispatch:
 
+permissions:
+  contents: 'read'
+  id-token: 'write'
+  
+env:
+  PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
+  GAR_LOCATION: us-central1
+  GAR_REPOSITORY: my-repo
+  IMAGE_NAME: pythonapp
 jobs:
   build-job:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Source
         uses: actions/checkout@v4
-        
-      - name: run a command
-        run: echo "Running this CI workflow"
+
+      - name: Authenticate to Google cloud
+        uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: ${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}
+          service_account: ${{ secrets.GCP_SERVICE_ACCOUNT }}
         
