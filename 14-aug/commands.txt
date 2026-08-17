@@ -1,0 +1,51 @@
+ kubectl create ns network
+  452  kubectl apply -f app1.yml
+  453  kubectl apply -f app1.yml -n network
+  454  kubectl apply -f app2.yml -n network
+  455  kubectl apply -f app3.yml -n network
+  456  kubectl get deployments -n network
+  457  kubectl get pods -n network
+  458  kubectl get pods -n network -o wide
+  459  kubectl exec -it myapp-85985cfc7f-49ptv -- bash
+  460  kubectl exec -it myapp-85985cfc7f-49ptv -n network -- bash
+  461  kubectl apply -f network.yml -n network
+  462  kubectl get networkpolicy -n network
+  463  kubectl get pods -n network -o wide
+  464  kubectl exec -it adminer-58b6c85b7f-kw89l -n network -- sh
+  465  kubectl exec -it myapp-85985cfc7f-49ptv -n network -- bash
+  466  kubectl create ns hpa
+  467  cd ..
+  468  cd ..
+  469  cd gcp8ambatch/
+  470  cd 14-aug/
+  471  cd hpa/
+  472  ls
+  473  kubectl apply -f app1.yml -n hpa
+  474  kubectl apply -f svc.yml -n hpa
+  475  kubectl get pods -n hpa
+  476  kubectl get svc -n hpa
+  477  kubectl get deployments -n hpa
+  478  kubectl apply -f hpa.yml -n hpa
+  479  kubectl get hpa -n hpa
+  480  kubectl get hpa -n hpa
+  481  kubectl get pods -n hpa
+  482  kubectl get svc -n hpa
+  483  kubectl run load-generator --image=busybox --restart=Never -n hpa -- /bin/sh -c "while true; do wget -q -O- http://nginx-service; done"
+  484  kubectl get pods -n hpa
+  485  kubectl logs load-generator -n hpa
+  486  kubectl describe pod load-generator -n hpa
+  487  kubectl run load-generator1 --image=busybox --restart=Never -n hpa -- //bin/sh -c "while true; do wget -q -O- http://nginx-service; done"
+  488  kubectl get pods -n hpa
+  489  kubectl logs load-generator1 -n hpa
+  490  kubectl get pods -n hpa
+  491  kubectl get hpa -n hpa
+  492  kubectl get hpa -n hpa
+  493  kubectl get hpa -n hpa
+  494  kubectl get pods -n hpa
+  495  kubectl delete pod load-generator1 -n hpa
+  496  kubectl get hpa -n hpa
+  497  kubectl get hpa -n hpa -w
+  498  kubectl get hpa -n hpa
+  499  kubectl get pods -n hpa
+  500  kubectl get pods -n hpa
+  501  history
