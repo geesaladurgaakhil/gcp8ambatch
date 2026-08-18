@@ -1,0 +1,54 @@
+
+gcloud iam workload-identity-pools create github-pool \
+  --project=my-gcp-project \
+  --location=global \
+  --display-name="GitHub Actions Pool"
+
+
+
+gcloud iam workload-identity-pools providers create-oidc github-provider \
+  --project=my-gcp-project \
+  --location=global \
+  --workload-identity-pool=github-pool \
+  --display-name="GitHub Actions OIDC Provider" \
+  --attribute-mapping="google.subject=assertion.sub,attribute.repository=assertion.repository,attribute.repository_owner=assertion.repository_owner,attribute.ref=assertion.ref" \
+  --issuer-uri="https://token.actions.githubusercontent.com"
+  
+ 
+gcloud iam workload-identity-pools providers update-oidc github-provider \
+  --project=my-gcp-project \
+  --location=global \
+  --workload-identity-pool=github-pool \
+  --attribute-condition="assertion.repository == 'my-github-org/my-app'"
+  
+  
+  
+ gcloud projects describe my-gcp-project \
+  --format="value(projectNumber)"
+  
+ gcloud iam workload-identity-pools providers describe githuboidc \
+  --project=project-5b58ef08-5d18-4111-846 \
+  --location=global \
+  --workload-identity-pool=githubpool
+  
+  
+  projects/157745756562/locations/global/workloadIdentityPools/githubpool/providers/githuboidc
+  
+  githubsa@project-5b58ef08-5d18-4111-846.iam.gserviceaccount.com
+  
+  
+  
+  image path:
+  ----------
+  
+  us-central1-docker.pkg.dev/project-5b58ef08-5d18-4111-846/my-repo
+  
+
+
+ Google links:
+ -------------
+ https://docs.cloud.google.com/iam/docs/workload-identity-federation-with-deployment-pipelines#console_2
+ 
+ OIDC github link:
+ -----------------
+ https://docs.github.com/en/actions/concepts/security/openid-connect
