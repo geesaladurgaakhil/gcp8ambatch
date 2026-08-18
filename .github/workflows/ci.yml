@@ -77,6 +77,5 @@ jobs:
 
       - name: Verify GKE access
         run: |
-          kubectl cluster-info
           kubectl get nodes
 
