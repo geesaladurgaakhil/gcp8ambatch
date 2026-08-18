@@ -28,7 +28,15 @@ jobs:
         with:
           workload_identity_provider: ${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}
           service_account: ${{ secrets.GCP_SERVICE_ACCOUNT }}
-          
+
+      - name: Setup gcloud
+        uses: google-github-actions/setup-gcloud@v2
+
+      - name: Verify GCP authentication
+        run: |
+         gcloud auth list
+         gcloud config list
+         
       - name: Configure docker authentication
         run: |
          gcloud auth configure-docker us-central1-docker.pkg.dev
