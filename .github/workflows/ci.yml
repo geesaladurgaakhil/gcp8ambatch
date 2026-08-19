@@ -77,5 +77,5 @@ jobs:
       - name: Verify GKE access
         run: |
           kubectl get nodes
-          
+          kubectl apply -f 27-july/k8s_Files/
   
