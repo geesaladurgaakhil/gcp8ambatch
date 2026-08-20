@@ -1,0 +1,12 @@
+gcloud container clusters describe  gke-dr-primary --location=us-central-1
+
+gcloud projects add-iam-policy-binding project-5b58ef08-5d18-4111-846  --member="serviceAccount:157745756562-compute@developer.gserviceaccount.com"   --role="roles/artifactregistry.reader" kubectl get pods
+  503  kubectl logs python-deployment-798d9bf959-gqn62
+  504  kubectl describe pdod python-deployment-798d9bf959-gqn62
+  505  kubectl describe pod python-deployment-798d9bf959-gqn62
+  506  kubectl get pods
+  507  kubectl get pods
+  508  kubectl describe pod python-deployment-7d8997496f-q5plc
+  509  kubectl get svc
+  510  kubectl get pods
+  511  kubectl get svc
