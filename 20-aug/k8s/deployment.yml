@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: pythonapp
+  template:
+    metadata:
+      labels:
+        app: pythonapp
+    spec:
+      containers:
+      - name: pythonapp
+        image: us-central1-docker.pkg.dev/project-5b58ef08-5d18-4111-846/my-repo/pythonapp:latest
+        ports:
+        - containerPort: 5000

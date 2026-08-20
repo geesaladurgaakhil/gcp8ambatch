@@ -74,8 +74,13 @@ jobs:
           location: ${{ env.GKE_LOCATION }}
           project_id: ${{ env.PROJECT_ID }}
           
+      - name: Update Image Tag
+        run: |
+          sed -i "s|:latest|:${{ github.sha }}|g" 20-aug/k8s/deployment.yml
+          cat 20-aug/k8s/deployment.yml
+
       - name: Verify GKE access
         run: |
           kubectl get nodes
-          kubectl apply -f 27-july/k8s_Files/
+          kubectl apply -f 20-aug/k8s/
   
