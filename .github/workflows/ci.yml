@@ -54,6 +54,8 @@ jobs:
   deploy-job:
     runs-on: ubuntu-latest
     needs: build-job
+    environment:
+      name: production
     steps:
       - name: Checkout Source
         uses: actions/checkout@v4
