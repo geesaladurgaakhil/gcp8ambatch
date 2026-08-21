@@ -18,7 +18,7 @@ jobs:
    
    steps:
      - name: checkout sourc code
-       uses: actions/checkout@v4
+       uses: actions/checkout@v7
 
      - name: Setup python
        uses: actions/setup-python@v5
