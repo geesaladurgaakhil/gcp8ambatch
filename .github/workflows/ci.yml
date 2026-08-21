@@ -1,10 +1,10 @@
 name: GKE CI/CD
 
 on:
- push:
-   branches:
-     - main
-     - test
+#  push:
+#    branches:
+#      - main
+#      - test
  workflow_dispatch:
 
 permissions:
