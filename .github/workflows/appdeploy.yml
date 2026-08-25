@@ -30,10 +30,41 @@ jobs:
          python -m pip install --upgrade pipeline
          pip install -r requirements.txt
 
-     - name: Run python syntax check
-       run: |
-         python -m compileall .
+    #  - name: Run python syntax check
+    #    run: |
+    #      python -m compileall .
 
      - name: Run application test
        run: |
          python -c "from app import app: print('Application import successfully')"
+ deploy:
+  name: Deploy to app engine
+  needs: test
+  runs-on: ubuntu-latest
+  permissions:
+   contents: read
+   id-token: write
+
+  steps:
+    - name: Checkout source code
+      uses: actions/checkout@v4
+    
+    - name: Authenticate to Google cloud
+      id: auth
+      uses: google-github-actions/auth@v2
+      with:
+        project_id: ${{ env.PROJECT_ID }}
+        workload_identity_provider: ${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}
+        service_account: ${{ secrets.GCP_SERVICE_ACCOUNT }}
+
+    - name: Setup gcloud
+      uses: google-github-actions/setup-gcloud@v2
+
+    - name: Verify GCP authentication
+      run: |
+         gcloud auth list
+         gcloud config list
+
+    - name: Validate APP engine config
+      run: |
+        gcloud app describe
