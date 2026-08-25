@@ -36,7 +36,7 @@ jobs:
 
      - name: Run application test
        run: |
-         python -c "from app import app: print('Application import successfully')"
+         python -c "from app import app; print('Application import successfully')"
  deploy:
   name: Deploy to app engine
   needs: test
