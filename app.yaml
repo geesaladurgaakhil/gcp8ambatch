@@ -1,5 +1,5 @@
 runtime: python311
-service: python-service
+service: default
 entrypoint: gunicorn -b :$PORT app:app
 manual_scaling:
   instances: 3
