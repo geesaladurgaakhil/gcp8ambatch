@@ -68,3 +68,15 @@ jobs:
     - name: Validate APP engine config
       run: |
         gcloud app describe
+
+    - name: Deploy Application to app engine
+      run: |
+        gcloud app deploy app.yaml \
+        --project=$PROJECT_ID
+    
+    - name: Get App Engine URL
+      id: app-url
+      run: |
+        URL=$(gcloud app browse --- project=$PROJECT_ID --no-lanch-browser 2>&1 | tail -1)
+        echo "Application Deployed Successfully"
+        echo "URL: $URL"
