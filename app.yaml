@@ -1,6 +1,7 @@
 runtime: python311
 service: default
 entrypoint: gunicorn -b :$PORT app:app
+service_account: githubsa@project-5b58ef08-5d18-4111-846.iam.gserviceaccount.com
 manual_scaling:
   instances: 3
   #automatic_scaling:
