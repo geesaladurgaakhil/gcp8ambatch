@@ -50,7 +50,7 @@ jobs:
    - name: Deploy to Cloud Run
      run: |
       gcloud run deploy "$SERVICE" \
-      --image: us-central1-docker.pkg.dev/project-5b58ef08-5d18-4111-846/${{ env.REPOSITORY }}/${{ env.SERVICE }}:${{ github.sha }} \
+      --image us-central1-docker.pkg.dev/project-5b58ef08-5d18-4111-846/${{ env.REPOSITORY }}/${{ env.SERVICE }}:${{ github.sha }} \
       --region "$GAR_LOCATION" \
       --platform managed \
       --port 5000 \
