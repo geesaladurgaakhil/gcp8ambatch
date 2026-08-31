@@ -1,0 +1,2 @@
+gcloud projects add-iam-policy-binding project-5b58ef08-5d18-4111-846 --member="serviceAccount:githubsa@project-5b58ef08-5d18-4111-846.iam.gserviceaccount.com" --role="roles/run.admin"
+gcloud iam service-accounts add-iam-policy-binding 157745756562-compute@developer.gserviceaccount.com --member="serviceAccount:githubsa@project-5b58ef08-5d18-4111-846.iam.gserviceaccount.com" --role="roles/iam.serviceAccountUser"
