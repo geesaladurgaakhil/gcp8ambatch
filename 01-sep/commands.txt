@@ -1,0 +1,34 @@
+ helm repo add bitnami https://charts.bitnami.com/bitnami
+  503  helm repo update
+  504  helm search repo nginx
+  505  helm pull bitnami/nginx --untar
+  506  rm -rf nginx/
+  507  helm pull bitnami/nginx --untar
+  508  cd nginx/
+  509  ls
+  510  cd ..
+  511  cd gcp8ambatch/
+  512  ls
+  513  helm pull bitnami/nginx --untar
+  514  helm install nginx-basic binami/nginx
+  515  helm install nginx-basic nginx/
+  516  kubectl get nodes
+  517  kubectl get deployments
+  518  kubectl get pods
+  519  kubectl describe pod nginx-basic-c77998df7-dxvcd
+  520  helm upgrade nginx-basic nginx/
+  521  kubectl get pods
+  522  helm history nginx-basic
+  523  helm rollback nginx-basic 1
+  524  kubectl get pods
+  525  helm history nginx-basic
+  526  cd ..
+  527  cd python
+  528  ls
+  529  cd pythonapp
+  530  ls
+  531  helm create python
+  532  ls
+  533  cd python/
+  534  ls
+  535  cat values.yaml
