@@ -3,10 +3,10 @@ apiVersion: apps/v1
 kind: Deployment
 
 metadata:
-  name: {{ include "pythonapp.fullname" . }}
+  name: {{ include "python-app.fullname" . }}
 
   labels:
-    {{- include "pythonapp.labels" . | nindent 4 }}
+    {{- include "python-app.labels" . | nindent 4 }}
 
 spec:
 
@@ -14,19 +14,19 @@ spec:
 
   selector:
     matchLabels:
-      {{- include "pythonapp.selectorLabels" . | nindent 6 }}
+      {{- include "python-app.selectorLabels" . | nindent 6 }}
 
   template:
 
     metadata:
       labels:
-        {{- include "pythonapp.selectorLabels" . | nindent 8 }}
+        {{- include "python-app.selectorLabels" . | nindent 8 }}
 
     spec:
 
       containers:
 
-        - name: pythonapp
+        - name: python-app
 
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
 
@@ -47,7 +47,7 @@ spec:
 
             httpGet:
               path: /
-              port: 5000
+              port: http
 
             initialDelaySeconds: 5
             periodSeconds: 10
@@ -56,7 +56,7 @@ spec:
 
             httpGet:
               path: /
-              port: 5000
+              port: http
 
             initialDelaySeconds: 15
             periodSeconds: 20

@@ -3,17 +3,17 @@ apiVersion: v1
 kind: Service
 
 metadata:
-  name: {{ include "pythonapp.fullname" . }}
+  name: {{ include "python-app.fullname" . }}
 
   labels:
-    {{- include "pythonapp.labels" . | nindent 4 }}
+    {{- include "python-app.labels" . | nindent 4 }}
 
 spec:
 
   type: {{ .Values.service.type }}
 
   selector:
-    {{- include "pythonapp.selectorLabels" . | nindent 4 }}
+    {{- include "python-app.selectorLabels" . | nindent 4 }}
 
   ports:
 
