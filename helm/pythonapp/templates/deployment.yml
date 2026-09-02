@@ -3,10 +3,10 @@ apiVersion: apps/v1
 kind: Deployment
 
 metadata:
-  name: {{ include "python-app.fullname" . }}
+  name: {{ include "pythonapp.fullname" . }}
 
   labels:
-    {{- include "python-app.labels" . | nindent 4 }}
+    {{- include "pythonapp.labels" . | nindent 4 }}
 
 spec:
 
@@ -14,19 +14,19 @@ spec:
 
   selector:
     matchLabels:
-      {{- include "python-app.selectorLabels" . | nindent 6 }}
+      {{- include "pythonapp.selectorLabels" . | nindent 6 }}
 
   template:
 
     metadata:
       labels:
-        {{- include "python-app.selectorLabels" . | nindent 8 }}
+        {{- include "pythonapp.selectorLabels" . | nindent 8 }}
 
     spec:
 
       containers:
 
-        - name: python-app
+        - name: pythonapp
 
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
 
