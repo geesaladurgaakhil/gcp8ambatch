@@ -75,14 +75,29 @@ jobs:
           cluster_name: ${{ env.GKE_CLUSTER }}
           location: ${{ env.GKE_LOCATION }}
           project_id: ${{ env.PROJECT_ID }}
-          
-      - name: Update Image Tag
-        run: |
-          sed -i "s|:latest|:${{ github.sha }}|g" 20-aug/k8s/deployment.yml
-          cat 20-aug/k8s/deployment.yml
 
-      - name: Verify GKE access
+      - name: Setup Helm
+        uses: azure/setup-helm@v4
+      
+      - name: Helm deploy
         run: |
-          kubectl get nodes
-          kubectl apply -f 20-aug/k8s/
+          helm upgrade --install pythongke \
+            helm/pythonapp \
+            --namespace helm \
+            --create-namespace \
+            --set image.repository=us-central1-docker.pkg.dev/project-5b58ef08-5d18-4111-846/my-repo/pythonapp \
+            --set image.tag="${GITHUB_SHA}" \
+            --set environment.ENVIRONMENT=production \
+            --wait \
+            --timeout 5m
+          
+      # - name: Update Image Tag
+      #   run: |
+      #     sed -i "s|:latest|:${{ github.sha }}|g" 20-aug/k8s/deployment.yml
+      #     cat 20-aug/k8s/deployment.yml
+
+      # - name: Verify GKE access
+      #   run: |
+      #     kubectl get nodes
+      #     kubectl apply -f 20-aug/k8s/
   
