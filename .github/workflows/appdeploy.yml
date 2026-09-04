@@ -18,7 +18,7 @@ jobs:
    
    steps:
      - name: checkout sourc code
-       uses: actions/checkout@v4
+       uses: actions/checkout@v7
 
      - name: Setup python
        uses: actions/setup-python@v5
@@ -47,7 +47,7 @@ jobs:
 
   steps:
     - name: Checkout source code
-      uses: actions/checkout@v4
+      uses: actions/checkout@v7
     
     - name: Authenticate to Google cloud
       id: auth
