@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>App Engine + GKE Demo</title>
+
+    <style>
+
+        body {
+            font-family: Arial;
+            margin: 50px;
+            background: #f4f6f8;
+        }
+
+        .container {
+            width: 700px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        button {
+            padding: 12px 25px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        #response {
+            margin-top: 20px;
+            background: #eee;
+            padding: 20px;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+    <h1>Google Cloud Demo</h1>
+
+    <h2>Frontend</h2>
+
+    <p>
+        Application running on Google App Engine
+    </p>
+
+
+    <button onclick="callBackend()">
+
+        Call GKE Backend
+
+    </button>
+
+
+    <div id="response">
+
+        Waiting for backend response...
+
+    </div>
+
+</div>
+
+
+<script>
+
+async function callBackend() {
+
+    document.getElementById("response").innerHTML =
+        "Calling GKE backend...";
+
+
+    try {
+
+        const response =
+            await fetch("/api/backend");
+
+
+        const data =
+            await response.json();
+
+
+        document.getElementById("response").innerHTML = `
+
+            <b>Status:</b> ${data.status}
+
+            <br>
+
+            <b>Message:</b> ${data.message}
+
+            <br>
+
+            <b>GKE Pod:</b> ${data.pod}
+
+        `;
+
+    }
+
+    catch(error) {
+
+        document.getElementById("response").innerHTML =
+
+            "Backend Error: " + error;
+
+    }
+
+}
+
+</script>
+
+
+</body>
+
+</html>
